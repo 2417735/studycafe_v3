@@ -94,7 +94,7 @@ hello this is the update html for my new assignment projects.
        <script>
     // Function to fetch grade from Google Apps Script
     async function fetchGrade() {
-        const scriptUrl = https://script.google.com/macros/s/AKfycbwHIx9SaHxVielNW2cuipmT0NzLUHGmpKFJwyUFFbRL/dev 
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbwHIx9SaHxVielNW2cuipmT0NzLUHGmpKFJwyUFFbRL/dev"
         const assignments = 85; // 
         const exams = 90;       //
 
