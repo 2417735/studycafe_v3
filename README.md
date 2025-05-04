@@ -116,6 +116,5 @@ hello this is the update html for my new assignment projects.
 
     // Fetch grade when page loads
     window.addEventListener('load', fetchGrade);
-</script>
-</body>
-</html>
+ </script>
+
