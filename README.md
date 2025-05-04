@@ -60,15 +60,13 @@ hello this is the update html for my new assignment projects.
             100% { transform: rotate(360deg); }
         }
     </style>
-</head>
-<body>
-    <div class="grade-display">
-        <div id="grade-loader" class="grade-loader"></div>
-        <div id="grade-content" style="display: none;">
-            <h3>Current Course Grade</h3>
-            <div style="font-size: 1.5rem; margin: 5px 0;">87.00%</div>
-        </div>
+<div class="grade-display">
+    <div id="grade-loader" class="grade-loader"></div>
+    <div id="grade-content" style="display: none;">
+        <h3>Current Course Grade</h3>
+        <div id="grade-value" style="font-size: 1.5rem; margin: 5px 0;">Loading...</div>
     </div>
+</div>
 
     <div class="main-container">
         <div class="panel black-panel">
@@ -93,17 +91,31 @@ hello this is the update html for my new assignment projects.
     </div>
 
     <script>
-        // Simulate loading delay
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('grade-loader');
-            const content = document.getElementById('grade-content');
+       <script>
+    // Function to fetch grade from Google Apps Script
+    async function fetchGrade() {
+        const scriptUrl = https://script.google.com/macros/s/AKfycbwHIx9SaHxVielNW2cuipmT0NzLUHGmpKFJwyUFFbRL/dev 
+        const assignments = 85; // Default value (modify or get from user input)
+        const exams = 90;       // Default value (modify or get from user input)
+
+        try {
+            const response = await fetch(`${scriptUrl}?assignments=${assignments}&exams=${exams}`);
+            const data = await response.json();
             
-            // Show loading spinner for 5 seconds
-            setTimeout(() => {
-                loader.style.display = 'none';
-                content.style.display = 'block';
-            }, 5000);
-        });
-    </script>
+            // Hide loader & display grade
+            document.getElementById("grade-loader").style.display = "none";
+            document.getElementById("grade-content").style.display = "block";
+            document.getElementById("grade-value").textContent = `${data.grade}%`;
+        } catch (error) {
+            document.getElementById("grade-loader").style.display = "none";
+            document.getElementById("grade-content").style.display = "block";
+            document.getElementById("grade-value").textContent = "Error loading grade";
+            console.error("Fetch error:", error);
+        }
+    }
+
+    // Fetch grade when page loads
+    window.addEventListener('load', fetchGrade);
+</script>
 </body>
 </html>
