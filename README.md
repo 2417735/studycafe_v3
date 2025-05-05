@@ -91,12 +91,11 @@ hello this is the update html for my new assignment projects.
     </div>
 
     <script>
-       <script>
     // Function to fetch grade from Google Apps Script
     async function fetchGrade() {
-        const scriptUrl = "https://script.google.com/macros/s/AKfycbwHIx9SaHxVielNW2cuipmT0NzLUHGmpKFJwyUFFbRL/dev"
-        const assignments = 85; // 
-        const exams = 90;       //
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbwHIx9SaHxVielNW2cuipmT0NzLUHGmpKFJwyUFFbRL/dev";
+        const assignments = 85; // Default value
+        const exams = 90;       // Default value
 
         try {
             const response = await fetch(`${scriptUrl}?assignments=${assignments}&exams=${exams}`);
@@ -116,5 +115,5 @@ hello this is the update html for my new assignment projects.
 
     // Fetch grade when page loads
     window.addEventListener('load', fetchGrade);
- </script>
-
+</script>
+  
