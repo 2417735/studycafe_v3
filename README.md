@@ -89,18 +89,19 @@ hello this is the update html for my new assignment projects.
     <div class="bio-fixed">
         <p><strong>Name:</strong> ALAM AL KAHAF<br><strong>Phone:</strong> 010-9672-4615</p>
     </div>
+one";
+          
 <script>
     async function fetchGrade() {
-        const scriptUrl = "https://script.google.com/macros/s/AKfycb.../exec"; // Replace with your real exec URL
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbwHIx9SaHxVielNW2cuipmT0NzLUHGmpKFJwyUFFbRL/exec";
         const assignments = 85;
         const exams = 90;
 
         try {
             const response = await fetch(`${scriptUrl}?assignments=${assignments}&exams=${exams}`);
             if (!response.ok) throw new Error("Network response was not ok");
-            
-            const data = await response.json();
 
+            const data = await response.json();
             document.getElementById("grade-loader").style.display = "none";
             document.getElementById("grade-content").style.display = "block";
             document.getElementById("grade-value").textContent = `${data.grade}%`;
